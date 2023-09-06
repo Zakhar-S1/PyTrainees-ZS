@@ -17,9 +17,18 @@ class MySQLManager:
         my_cursor = self.conn.cursor()
         my_cursor.execute("CREATE DATABASE testdb")
 
+    def create_table(self):
+        pass
+
+    def input_data_into_db(self):
+        pass
+
+
+
+
+
     def show_db(self):
         my_cursor = self.conn.cursor()
-
         my_cursor.execute("SHOW DATABASES")
 
         for db in my_cursor:
