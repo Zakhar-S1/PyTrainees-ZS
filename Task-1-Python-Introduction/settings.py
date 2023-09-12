@@ -12,11 +12,6 @@ my_db_name = os.getenv("DB_NAME")
 
 def myEnvironment() -> None:
     load_dotenv()
-    print(f'My id is: {my_host}.')
-    print(f'My secret key is: {my_user}.')
-    print(f'My secret key is: {my_password}.')
-    print(f'My secret key is: {my_port}.')
-    print(f'My secret key is: {my_db_name}.')
 
 
 if __name__ == "__main__":
