@@ -12,7 +12,6 @@ class MySQLManager:
             password=password
         )
 
-    # self.conn = mysql.connector.connect(host="localhost", user="root", password="1230321!", database="testdb")
 
     def create_db(self):
         my_cursor = self.conn.cursor()
@@ -42,7 +41,16 @@ class MySQLManager:
             self.conn.commit()
 
     def insert_data_into_students_tb(self):
-        pass
+        my_cursor = self.conn.cursor()
+
+        with open('/Users/zakhar/PyTrainees-ZS/Task-1-Python-Introduction/data/input/students.json', 'r') as f:
+            data = json.load(f)
+
+        for item in data:
+            val = (item['birthday'], item['id'], item['name'], item['room'], item['sex'])
+            sql = "INSERT INTO pyIntro.rooms(birthday, id, name, room, sex) VALUES(%s,%s)"
+            my_cursor.execute(sql, val)
+            self.conn.commit()
 
     def show_tables(self):
         my_cursor = self.conn.cursor()

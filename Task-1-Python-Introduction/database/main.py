@@ -1,9 +1,10 @@
-import database
+
+from database import MySQLManager
 from settings import my_host, my_user, my_password
 
 
 def main():
-    mydb = database.MySQLManager(host=my_host, user=my_user, password=my_password)
+    mydb = MySQLManager(host=my_host, user=my_user, password=my_password)
     mydb.insert_data_into_rooms_tb()
     #mydb.create_db()
     #mydb.create_schema()
