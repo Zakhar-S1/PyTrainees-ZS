@@ -65,3 +65,5 @@ Where Students.sex = 'M' AND Rooms.name IN (SELECT Rooms.name
                                             WHERE Students.sex = 'F')
 GROUP BY Rooms.name;
 """
+
+QUERIES = [GET_LIST_OF_ROOMS_AND_STUDENTS, AVG_AGE_OF_STUDENTS, DIFF_OF_AGE, GET_ROOMS_ACCORDING_GENDER]

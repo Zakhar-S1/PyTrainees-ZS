@@ -22,6 +22,9 @@ class MySQLManager:
         )
         self.my_cursor = self.conn.cursor()
 
+    # def select(self, query, **kwargs):
+    #     return self.my_cursor.execute(query, **kwargs)
+
     def create_schema(self):
         self.my_cursor.execute(CREATE_SCHEMA)
         self.my_cursor.execute(USE_DB)
@@ -58,6 +61,18 @@ class MySQLManager:
         sql = INSERT_DATA_INTO_TB_STUDENTS
         self.my_cursor.executemany(sql, data_for_insert)
         self.conn.commit()
+
+    def execute_select_query(self, query, **kwargs):
+
+        result = []
+        for i, item in enumerate(query):
+            self.my_cursor.execute(item, **kwargs)
+            result.append(self.my_cursor.fetchall())
+
+        return result
+
+        # self.my_cursor.execute(query, **kwargs)
+        # return self.my_cursor.fetchall()
 
     def close_connection(self):
         self.conn.close()

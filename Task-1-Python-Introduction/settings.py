@@ -11,3 +11,6 @@ my_user = os.getenv("DB_USER")
 my_password = os.getenv("DB_PASSWORD")
 my_port = os.getenv("DB_PORT")
 my_db_name = os.getenv("DB_NAME")
+
+#os.getcwd()
+
