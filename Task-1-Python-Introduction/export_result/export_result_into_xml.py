@@ -1,4 +1,5 @@
 import xml.etree.ElementTree as ET
+import logging
 
 from export_result import ExportResult
 
@@ -8,6 +9,8 @@ class XmlConverter(ExportResult):
         self.data_for_convert = data_from_queries
 
     def convert_to_format(self) -> None:
+        logging.info('Convert data to xml and return it')
+
         root = ET.Element('Results')
         for item in self.data_for_convert:
             for i in item:
@@ -15,6 +18,6 @@ class XmlConverter(ExportResult):
                 result_of_query.text = str(i)
 
         tree = ET.ElementTree(root)
-        tree.write("Output.xml", encoding='utf-8', xml_declaration=True)
+        tree.write("data/output/Output.xml", encoding='utf-8', xml_declaration=True)
 
 

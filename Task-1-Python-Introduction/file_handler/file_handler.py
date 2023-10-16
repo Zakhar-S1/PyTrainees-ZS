@@ -1,5 +1,7 @@
 
-class AbstractFileHandler:
+class FileFormatHandler:
 
-    def filehandler(self):
+    def parse_data_from_file(self):
         pass
+
+
