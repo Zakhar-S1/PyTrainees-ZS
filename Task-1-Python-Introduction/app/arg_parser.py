@@ -14,7 +14,6 @@ class ArgumentParser:
             help='path for rooms file',
             type=str
         )
-        parser = ErrorCatchingArgumentParser()
         parser.add_argument(
             '--path_for_students_file',
             help='path for students file',
