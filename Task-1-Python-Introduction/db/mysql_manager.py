@@ -1,7 +1,6 @@
 import mysql.connector
 import json
 
-from settings import PATH_TO_ROOMS_FILE, PATH_TO_STUDENTS_FILE
 from my_queries import *
 
 
@@ -16,7 +15,6 @@ class MySQLManager:
         self.my_cursor = self.conn.cursor()
         self.path_for_rooms_file = path_for_rooms_file
         self.path_for_students_file = path_for_students_file
-
 
     def create_schema(self):
         self.my_cursor.execute(CREATE_SCHEMA)

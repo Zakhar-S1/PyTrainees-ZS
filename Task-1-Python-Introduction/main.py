@@ -1,12 +1,7 @@
 import logging
 
 from app.arg_parser import ArgumentParser
-from db import MySQLManager
-from export_result.export_result_into_json import JsonConverter
-from export_result.export_result_into_xml import XmlConverter
 from logger.logger_settings import AppLogging
-from my_queries.queries import QUERIES
-from settings import my_host, my_user, my_password
 from app.application import Application
 
 
