@@ -5,7 +5,7 @@ from export_result.export_result_into_json import JsonConverter
 from export_result.export_result_into_xml import XmlConverter
 # from logger.logger_settings import AppLogging
 from my_queries.queries import QUERIES
-from settings import my_host, my_user, my_password
+from settings import my_host, my_user, my_password, my_db_name
 
 
 class Application:
@@ -20,6 +20,7 @@ class Application:
             host=my_host,
             user=my_user,
             password=my_password,
+            namedb=my_db_name,
             path_for_rooms_file=self.dict_args["path_for_rooms_file"],
             path_for_students_file=self.dict_args["path_for_students_file"]
         )

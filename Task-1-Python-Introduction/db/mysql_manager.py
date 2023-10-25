@@ -6,11 +6,12 @@ from my_queries import *
 
 class MySQLManager:
 
-    def __init__(self, host, user, password, path_for_rooms_file, path_for_students_file):
+    def __init__(self, host, user, password, namedb, path_for_rooms_file, path_for_students_file):
         self.conn = mysql.connector.connect(
             host=host,
             user=user,
-            password=password
+            password=password,
+            database=namedb
         )
         self.my_cursor = self.conn.cursor()
         self.path_for_rooms_file = path_for_rooms_file
