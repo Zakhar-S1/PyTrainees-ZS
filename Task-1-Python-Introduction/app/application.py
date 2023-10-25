@@ -5,7 +5,7 @@ from export_result.export_result_into_json import JsonConverter
 from export_result.export_result_into_xml import XmlConverter
 # from logger.logger_settings import AppLogging
 from my_queries.queries import QUERIES
-from settings import my_host, my_user, my_password, my_db_name
+from settings import my_host, my_user, my_password, my_db_name, my_port
 
 
 class Application:
@@ -18,6 +18,7 @@ class Application:
 
         mydb = MySQLManager(
             host=my_host,
+            port=int(my_port),
             user=my_user,
             password=my_password,
             namedb=my_db_name,
@@ -25,6 +26,10 @@ class Application:
             path_for_students_file=self.dict_args["path_for_students_file"]
         )
 
+        mydb.create_schema()
+        mydb.create_tables()
+        mydb.insert_data_into_students_tb()
+        mydb.insert_data_into_rooms_tb()
         data_from_db = mydb.execute_select_query(QUERIES)
         mydb.close_connection()
 

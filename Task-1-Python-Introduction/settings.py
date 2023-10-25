@@ -1,8 +1,11 @@
 from dotenv import load_dotenv
 import os
 
-PATH_TO_ROOMS_FILE = "/Users/zakhar/PyTrainees-ZS/Task-1-Python-Introduction/data/input/rooms.json"
-PATH_TO_STUDENTS_FILE = "/Users/zakhar/PyTrainees-ZS/Task-1-Python-Introduction/data/input/students.json"
+# PATH_TO_ROOMS_FILE = "/Users/zakhar/PyTrainees-ZS/Task-1-Python-Introduction/data/input/rooms.json"
+# PATH_TO_STUDENTS_FILE = "/Users/zakhar/PyTrainees-ZS/Task-1-Python-Introduction/data/input/students.json"
+
+PATH_TO_ROOMS_FILE = os.path.join(os.path.dirname(os.path.abspath(__file__)), "data", "input", "rooms.json")
+PATH_TO_STUDENTS_FILE = os.path.join(os.path.dirname(os.path.abspath(__file__)), "data", "input", "students.json")
 
 load_dotenv()
 

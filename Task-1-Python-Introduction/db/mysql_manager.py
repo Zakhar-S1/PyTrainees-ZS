@@ -6,9 +6,10 @@ from my_queries import *
 
 class MySQLManager:
 
-    def __init__(self, host, user, password, namedb, path_for_rooms_file, path_for_students_file):
+    def __init__(self, host, user, password, namedb, path_for_rooms_file, path_for_students_file, port=3306):
         self.conn = mysql.connector.connect(
             host=host,
+            port=port,
             user=user,
             password=password,
             database=namedb
@@ -18,8 +19,8 @@ class MySQLManager:
         self.path_for_students_file = path_for_students_file
 
     def create_schema(self):
-        self.my_cursor.execute(CREATE_SCHEMA)
         self.my_cursor.execute(USE_DB)
+        self.my_cursor.execute(CREATE_SCHEMA)
 
     def create_tables(self):
         self.my_cursor.execute(CREATE_TB_ROOMS)
@@ -32,8 +33,7 @@ class MySQLManager:
         for tbs in self.my_cursor:
             print(tbs)
 
-    @staticmethod
-    def get_data_from_file(path):
+    def get_data_from_file(self, path):
         with open(path, 'r') as f:
             data = json.load(f)
         return data
