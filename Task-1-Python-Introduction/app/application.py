@@ -18,7 +18,7 @@ class Application:
 
         mydb = MySQLManager(
             host=my_host,
-            port=int(my_port),
+            port=my_port,
             user=my_user,
             password=my_password,
             namedb=my_db_name,
@@ -28,8 +28,8 @@ class Application:
 
         mydb.create_schema()
         mydb.create_tables()
-        mydb.insert_data_into_students_tb()
         mydb.insert_data_into_rooms_tb()
+        mydb.insert_data_into_students_tb()
         data_from_db = mydb.execute_select_query(QUERIES)
         mydb.close_connection()
 

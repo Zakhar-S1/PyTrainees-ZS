@@ -1,9 +1,5 @@
 version: '3.8'
 
-networks:
-  net:
-    driver: bridge
-
 services:
 
   db:
@@ -12,18 +8,17 @@ services:
     restart: always
     environment:
       - MYSQL_DATABASE=pyIntro
-      - MYSQL_USER=zahar
-      - MYSQL_PASSWORD=1230321!
+      - MYSQL_USER=user
+      - MYSQL_PASSWORD=password
       - MYSQL_ROOT_PASSWORD=root
     ports:
       - "3307:3306"
-    networks:
-      - net
-    healthcheck:
-      test: [ "CMD", "mysqladmin" ,"ping", "-h", "localhost" ]
-      interval: 5s
-      timeout: 5s
-      retries: 10
+
+#    healthcheck:
+#      test: [ "CMD", "mysqladmin" ,"ping", "-h", "localhost" ]
+#      interval: 5s
+#      timeout: 5s
+#      retries: 10
 
   applications:
     container_name: app
@@ -35,7 +30,5 @@ services:
     ports:
       - "80:80"
     depends_on:
-      db:
-        condition: service_healthy
-    networks:
-      - net
+      - db
+#        condition: service_healthy
