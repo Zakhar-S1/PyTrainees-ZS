@@ -26,14 +26,14 @@ class Application:
             path_for_students_file=self.dict_args["path_for_students_file"]
         )
 
-        mydb.create_schema()
-        mydb.create_tables()
-        mydb.insert_data_into_rooms_tb()
-        mydb.insert_data_into_students_tb()
-        data_from_db = mydb.execute_select_query(QUERIES)
-        mydb.close_connection()
+        # mydb.create_schema()
+        # mydb.create_tables()
+        # mydb.insert_data_into_rooms_tb()
+        # mydb.insert_data_into_students_tb()
+        data_from_queries = mydb.execute_select_query(QUERIES)
+        # mydb.close_connection()
 
         if self.dict_args["format_of_export_file"] == "json":
-            JsonConverter(data_from_db).convert_to_format()
+            JsonConverter(data_from_queries=data_from_queries).convert_to_format()
         else:
-            XmlConverter(data_from_db).convert_to_format()
+            XmlConverter(data_from_queries).convert_to_format()

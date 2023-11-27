@@ -16,8 +16,5 @@ class JsonConverter(ExportResult):
         for list_element in self.data_for_convert:
             result_list.append({tt[0]: tt[1] if len(tt) == 2 else None for tt in list_element})
 
-        # json_str = json.dumps(result_list)
         with open('data/output/Output.json', 'w', encoding='utf-8') as f:
             json.dump(result_list, f, ensure_ascii=False, indent=4)
-
-        # return json_str
